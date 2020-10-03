@@ -97,7 +97,7 @@ const { height, width } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ffedcc",
+    backgroundColor: "#FFFFFF",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
     height: height * 0.28,
     width: width * 0.85,
     backgroundColor: "#E55B46",
+    opacity: 0.8,
     shadowOffset: { wdith: 3, height: 1 },
     shadowColor: "#000000",
     shadowOpacity: 0.3,

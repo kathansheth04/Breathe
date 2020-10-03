@@ -10,7 +10,7 @@ import Login from "./components/Login";
 import Settings from "./components/Settings";
 import Intro from "./components/Intro";
 import Register from "./components/Register";
-import Routes from "./components/PlaceHolder";
+import Routes from "./components/Dashboard";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
@@ -29,10 +29,10 @@ function tabNavigator() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === "Routes") {
-            iconName = "ios-options";
+          if (route.name === "Dashboard") {
+            iconName = "ios-home";
           } else if (route.name === "Settings") {
-            iconName = "ios=settings";
+            iconName = "ios-settings";
           }
 
           // You can return any component that you like here!
@@ -42,6 +42,7 @@ function tabNavigator() {
       tabBarOptions={{
         activeBackgroundColor: "#E55B46",
         inactiveBackgroundColor: "#E55B46",
+        opacity: 0.1,
         activeTintColor: "#FFFFFF",
         inactiveTintColor: "#FFFFFF",
         style: {
@@ -58,7 +59,7 @@ function tabNavigator() {
         },
       }}
     >
-      <Tab.Screen name="Routes" component={Routes} />
+      <Tab.Screen name="Dashboard" component={Routes}/>
       <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );
@@ -115,6 +116,7 @@ const App = ({ navigation }) => {
           gestureEnabled: false,
           headerStyle: {
             backgroundColor: "#E55B46",
+            opacity: 0.8,
             shadowColor: "transparent",
           },
         }}
@@ -128,6 +130,7 @@ const App = ({ navigation }) => {
           gestureEnabled: false,
           headerStyle: {
             backgroundColor: "#E55B46",
+            opacity: 0.8,
             shadowColor: "transparent",
           },
         }}
@@ -136,14 +139,13 @@ const App = ({ navigation }) => {
         name="main"
         component={tabNavigator}
         options={{
-          ...myOptions,
           gestureEnabled: false,
           headerStyle: {
-            color: "white",
             backgroundColor: "#E55B46",
-            shadowColor: "transparent",
+            opacity: 0.8
           },
-          headerLeft: null
+          headerLeft: null,
+          headerTitle: 'Home'
         }}
       />
     </Stack.Navigator>
