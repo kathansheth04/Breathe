@@ -1,0 +1,12 @@
+{
+  "name": "Breathe",
+  "displayName": "Breathe",
+  "expo": {
+    "name": "Breathe",
+    "slug": "Breathe",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
