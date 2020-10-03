@@ -31,22 +31,7 @@ export default class Intro extends Component {
     //check if user is logged in
     firebase.auth().onAuthStateChanged((user) => {
       if (user != null) {
-        firebase
-          .firestore()
-          .doc(`/FinancialInfo/${firebase.auth().currentUser.uid}`)
-          .get()
-          .then((snapshot) => {
-            //if user's info value (income, savings, food, and other parameters) exists in the database:
-            if (snapshot.exists) {
-              //navigate to main, which is the drawer navigator, chatbot being the default screen
-              console.log("exists");
-              this.props.navigation.navigate("routeScreen");
-            } else {
-              //if the info does not exist, take the user to the info screen so that they can enter their information
-              this.props.navigation.navigate("routesScreen");
-              console.log("does not exist");
-            }
-          });
+        this.props.navigation.navigate("main");
         //if the user is not logged in, take the user to the login screen where they can login
       } else {
         setTimeout(() => {
