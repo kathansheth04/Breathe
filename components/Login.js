@@ -34,19 +34,7 @@ export default class Login extends Component {
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
         console.log("user signed in!");
-        firebase
-          .firestore()
-          .doc(`/FinancialInfo/${firebase.auth().currentUser.uid}`)
-          .get()
-          .then(function (snapshot) {
-            if (snapshot.exists) {
-              console.log("info already exists");
-              this.props.navigation.navigate("routeScreen");
-            } else {
-              console.log("info does not exist");
-              this.props.navigation.navigate("routeScreen");
-            }
-          });
+        this.props.navigation.navigate("main");
       })
       .catch((error) => {
         if (error.code === "auth/email-already-in-use") {

@@ -77,7 +77,7 @@ export default class Register extends React.Component {
               userId: firebase.auth().currentUser.uid,
             })
         )
-        .then(() => this.props.navigation.navigate("routesScreen"));
+        .then(() => this.props.navigation.navigate("main"));
     } catch (error) {
       //if user cannot be logged in at the moment, he will be alerted
       console.log("error");
