@@ -19,7 +19,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import * as firebase from "firebase";
 import FireBase from "./config/FireBase";
 import * as Google from "expo-google-app-auth";
-import { FontAwesome } from '@expo/vector-icons';
+
 
 export default class Login extends Component {
   constructor(props) {
@@ -129,7 +129,7 @@ export default class Login extends Component {
               // The signed-in user info.
               var user = result.user;
               console.log(user);
-              // ...
+              this.props.navigation.navigate('main');
             })
             .catch(function (error) {
               // Handle Errors here.
@@ -155,7 +155,7 @@ export default class Login extends Component {
         androidClientId:
           "146881575660-5qp82vm70adfpog7g884kv2he87nbq94.apps.googleusercontent.com",
         iosClientId:
-          "146881575660-gccp535qac2psmc5dfbcuau7cq6ko9ub.apps.googleusercontent.com", //enter ios client id
+          "1093991806317-ifo35ee4ad1iemia8tcdbvqj4t6skvq2.apps.googleusercontent.com", //enter ios client id
         androidStandaloneAppClientId:
           "146881575660-5qp82vm70adfpog7g884kv2he87nbq94.apps.googleusercontent.com",
         scopes: ["profile", "email"],
@@ -201,11 +201,11 @@ export default class Login extends Component {
             autoCapitalize="none"
             placeholderTextColor="#2C2F33"
           />
-          <TouchableOpacity style={styles.Login}>
+          <TouchableOpacity style={styles.Login} onPress={() => this.loginAction()}>
             <Text style={{fontSize: 22}}>Sign In</Text>
           </TouchableOpacity>
           <TouchableOpacity
-          onPress={() => this.signIn()}
+          onPress={() => this.signInWithGoogleAsync()}
           style={styles.buttonGPlusStyle}
           activeOpacity={0.5}>
           <Image
@@ -248,6 +248,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'transparent',
     elevation: 3,
+    shadowColor: 'rgba(0,0,0, .4)', 
+    shadowOffset: { height: 3, width: 3 }, 
+    shadowOpacity: 3, 
+    shadowRadius: 3, 
     width: width * 0.9,
     marginBottom: height*0.1
   },
@@ -257,7 +261,7 @@ const styles = StyleSheet.create({
   },
   Email: {
     borderWidth: 0,
-    color: "#FFFFFF",
+    color: "#000",
     borderBottomColor: "#606060",
     borderBottomWidth: height * 0.001,
     alignSelf: 'center',
@@ -277,7 +281,7 @@ const styles = StyleSheet.create({
   },
   password: {
     borderWidth: 0,
-    color: "#FFFFFF",
+    color: "#000",
     borderBottomColor: "#606060",
     borderBottomWidth: height * 0.001,
     marginTop: height*0.03,
@@ -295,6 +299,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'transparent',
     elevation: 3,
+    shadowColor: 'rgba(0,0,0, .4)', 
+    shadowOffset: { height: 3, width: 3 }, 
+    shadowOpacity: 3, 
+    shadowRadius: 3, 
     width: width * 0.9,
     marginBottom: 20
   },

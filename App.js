@@ -143,6 +143,7 @@ const App = ({ navigation }) => {
             backgroundColor: "#E55B46",
             shadowColor: "transparent",
           },
+          headerLeft: null
         }}
       />
     </Stack.Navigator>
