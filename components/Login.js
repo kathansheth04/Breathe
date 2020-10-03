@@ -41,10 +41,10 @@ export default class Login extends Component {
           .then(function (snapshot) {
             if (snapshot.exists) {
               console.log("info already exists");
-              this.props.navigation.navigate("main");
+              this.props.navigation.navigate("routeScreen");
             } else {
               console.log("info does not exist");
-              this.props.navigation.navigate("routes");
+              this.props.navigation.navigate("routeScreen");
             }
           });
       })

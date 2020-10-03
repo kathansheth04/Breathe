@@ -40,7 +40,7 @@ export default class Intro extends Component {
             if (snapshot.exists) {
               //navigate to main, which is the drawer navigator, chatbot being the default screen
               console.log("exists");
-              this.props.navigation.navigate("main");
+              this.props.navigation.navigate("routeScreen");
             } else {
               //if the info does not exist, take the user to the info screen so that they can enter their information
               this.props.navigation.navigate("routesScreen");
@@ -89,7 +89,7 @@ const { height, width } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E55B46", //main gray color of the logo and the overall theme
+    backgroundColor: "#E55B46", 
     alignItems: "center",
     justifyContent: "center",
   },

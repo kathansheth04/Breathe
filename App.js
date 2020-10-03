@@ -9,7 +9,7 @@ import {
 import Login from "./components/Login";
 import Intro from "./components/Intro";
 import Register from "./components/Register";
-import Routes from "./components/Routes";
+import Routes from "./components/PlaceHolder";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
@@ -20,7 +20,6 @@ import { Ionicons } from "@expo/vector-icons";
 //creating stack and drawer navigators
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-//drawer navigator consisting of screens after info screen.
 //add more as needed only if the screens can be opened with the drawer
 function tabNavigator() {
   return (
@@ -73,7 +72,6 @@ const myOptions = {
 //Consists of Stack Navigator with all the screens and drawer navigator nested inside
 const App = ({ navigation }) => {
   return (
-    <View style={styles.container}>
       <Stack.Navigator>
         <Stack.Screen
           name="loadingScreen"
@@ -143,25 +141,14 @@ const App = ({ navigation }) => {
           }}
         />
       </Stack.Navigator>
-    </View>
   );
 };
-const { height, width } = Dimensions.get("window");
-//<Text style={{color:'#fff'}}>Drawer</Text>
 //export the navigation
 export default () => {
   return (
     <NavigationContainer>
-      <App />
+      <App/>
     </NavigationContainer>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

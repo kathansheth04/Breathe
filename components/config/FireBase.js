@@ -1,5 +1,4 @@
  import * as firebase from 'firebase'
-
 //config information needed for to connect project/app to the firebase project
 export default {
   config: {
