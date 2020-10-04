@@ -13,7 +13,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 import {Audio} from 'expo-av'
 
-export default class screen1Stress extends Component {
+export default class screen2Stress extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -43,7 +43,7 @@ export default class screen1Stress extends Component {
        
         try {
           const playbackInstance = new Audio.Sound()
-          const source = require('./Beach-ambience.mp3')
+          const source = require('./RipuGuide.mp3')
        
           const status = {
             shouldPlay: isPlaying,
@@ -78,10 +78,10 @@ export default class screen1Stress extends Component {
       <View style={styles.container}>
         <View style={{height: height, width: width, marginTop: height*0.3, borderRadius: 40, backgroundColor: '#FFF'}}>
             <Text style={{margin: 20, fontSize: 20, marginTop: 100}}>
-                Close your eyes and imagine yourself on a Beach. You are sipping on your orange juice which 
-                you still don't know how you got it on the island!
+            The right music has the power to take away all your worries. LoFi is a music genre that is very powerful 
+            because of its beats and calm music to help you relax!
             </Text>
-            <Image source={require('./beach.jpeg')} style={{height: 200, width: 250, alignSelf: 'center'}}/>
+            <Image source={require('./lofi.jpg')} style={{height: 200, width: 250, alignSelf: 'center'}}/>
             <View style={{flex: 1, flexDirection: 'row', width: width, alignItems: 'center', justifyContent: 'center', marginTop: -10}}>
                 
                 <TouchableOpacity>
@@ -95,7 +95,7 @@ export default class screen1Stress extends Component {
                     
                 </TouchableOpacity>
             </View>
-            <Ionicons onPress={() => this.props.navigation.navigate("screen2Stress")}
+            <Ionicons onPress={() => this.props.navigation.navigate("screen3Stress")}
             name='ios-redo' size={35} style={{marginBottom: 120, alignSelf: 'flex-end', marginEnd: 20, color: '#90EE90'}}/>
         </View>
 

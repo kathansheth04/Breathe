@@ -15,6 +15,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import StressScreen1 from './components/stress/screen1Stress'
+import StressScreen2 from './components/stress/screen2Stress'
+import StressScreen3 from './components/stress/screen3Stress'
 import { Ionicons } from "@expo/vector-icons";
 
 //creating stack and drawer navigators
@@ -95,6 +97,32 @@ const App = ({ navigation }) => {
       <Stack.Screen
         name="screen1Stress"
         component={StressScreen1}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="screen2Stress"
+        component={StressScreen2}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="screen3Stress"
+        component={StressScreen3}
         options={{
           ...myOptions,
           headerShown: false,
