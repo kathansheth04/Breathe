@@ -20,6 +20,7 @@ import StressScreen3 from './components/stress/screen3Stress'
 import SadScreen1 from './components/sadness/screen1Sad'
 import SadScreen2 from './components/sadness/screen2Sad'
 import SadScreen3 from './components/sadness/screen3Sad'
+import videoGame from './components/sadness/videoGame'
 import { Ionicons } from "@expo/vector-icons";
 
 //creating stack and drawer navigators
@@ -165,6 +166,19 @@ const App = ({ navigation }) => {
       <Stack.Screen
         name="screen3Sad"
         component={SadScreen3}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="videoGameScreen"
+        component={videoGame}
         options={{
           ...myOptions,
           headerShown: false,

@@ -34,11 +34,11 @@ export default class screen3Sad extends Component {
             challenges can help train your brain to be optimistic and be happy!
             Play this game and have some fun!
             </Text>
-            <Image source={require('./comic.jpg')} style={{borderRadius: 30, height: 200, width: 250, alignSelf: 'center', marginBottom: 60}}/>
+            <Image source={require('./gamepic.png')} style={{borderRadius: 30, height: 200, width: 250, alignSelf: 'center', marginBottom: 60}}/>
             <View style={{flex: 1, flexDirection: 'row', width: width, alignItems: 'center', justifyContent: 'center'}}>
             <TouchableOpacity 
                 style={{backgroundColor: "#ADD8E6",borderRadius:30, justifyContent: 'center', alignItems: 'center', height: 50, width: 250, marginBottom: 50}}
-                onPress={() => this.props.navigation.navigate("main")}>
+                onPress={() => this.props.navigation.navigate("videoGameScreen")}>
                     <Text style={{fontSize: 20}}>Play</Text>
                 </TouchableOpacity>
             </View>
