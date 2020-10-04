@@ -19,10 +19,9 @@ export default class screen1Stress extends Component {
         super(props);
         this.state = {
             isPlaying: false, 
-            eventDate:moment.duration().add({hours:0,minutes:1,seconds:5}), // add 9 full days
-            hours:0,
-            mins:0,
-            secs:0
+            eventDate:moment.duration().add({hours:0,minutes:1,seconds:30}), 
+            mins:1,
+            secs:30
       }
         
     }

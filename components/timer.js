@@ -4,7 +4,7 @@ import moment from "moment"
 export default class App extends React.Component {
 
   state={
-    eventDate:moment.duration().add({hours:0,minutes:1,seconds:5}), // add 9 full days
+    eventDate:moment.duration().add({hours:0,minutes:1,seconds:30}), // add 9 full days
     hours:0,
     mins:0,
     secs:0

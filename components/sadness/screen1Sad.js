@@ -28,7 +28,7 @@ export default class screen1Sad extends Component {
     return (
       <View style={styles.container}>
         <View style={{height: height, width: width, marginTop: height*0.3, borderRadius: 40, backgroundColor: '#FFF'}}>
-            <Text style={{margin: 20, fontSize: 20, marginTop: 100}}>
+            <Text style={{margin: 20, fontSize: 20, marginTop: 60, textAlign: 'center'}}>
             Cycling boosts your mood in the same way all physical exercise 
             makes you happy by influencing the release and uptake of chemicals 
             in your brain that make you feel good. Take a ride on this route!

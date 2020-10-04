@@ -90,7 +90,7 @@ export default class Music extends Component {
             backgroundColor: "#FFF",
           }}
         >
-          <Text style={{ margin: 20, fontSize: 20, marginTop: 100 }}>
+          <Text style={{ margin: 20, fontSize: 20, marginTop: 100, textAlign: 'center' }}>
             Start your music below for this therapy!
           </Text>
           <Image
@@ -99,6 +99,7 @@ export default class Music extends Component {
               borderRadius: 30,
               height: 200,
               width: 250,
+              marginTop: 50,
               alignSelf: "center",
             }}
           />
