@@ -133,7 +133,7 @@ export default class Music extends Component {
             </TouchableOpacity>
           </View>
           <Ionicons
-            onPress={() => this.props.navigation.navigate("AngerScreen3")}
+            onPress={() => this.props.navigation.navigate("AngerScreen1")}
             name="ios-redo"
             size={35}
             style={{

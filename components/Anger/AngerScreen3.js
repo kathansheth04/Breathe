@@ -6,10 +6,13 @@ import {
   Text,
   View,
   Alert,
-  ProgressBarAndroid,
+  TextInput,
   Dimensions,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import * as ImagePicker from "expo-image-picker";
+import Constants from "expo-constants";
+import * as Permissions from "expo-permissions";
 import { Ionicons } from "@expo/vector-icons";
 import { Audio } from "expo-av";
 
@@ -17,9 +20,34 @@ export default class screen1Stress extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      photo: null,
       isPlaying: false,
     };
   }
+  handlePickImage = async () => {
+    try {
+      const res = await Permissions.askAsync(
+        Permissions.CAMERA,
+        Permissions.CAMERA_ROLL
+      );
+      console.log("Permissions:", res);
+
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: false,
+        aspect: [4, 3],
+      });
+
+      console.log("Picker Result", result);
+
+      if (!result.cancelled) {
+        this.setState({ photo: result });
+        Alert.alert("Photo selected");
+      }
+    } catch (err) {
+      console.log("ERR", err);
+    }
+  };
   async componentDidMount() {
     try {
       await Audio.setAudioModeAsync({
@@ -75,6 +103,7 @@ export default class screen1Stress extends Component {
 
   //layout of the page
   render() {
+    const { photo } = this.state;
     return (
       <View style={styles.container}>
         <View
@@ -86,48 +115,53 @@ export default class screen1Stress extends Component {
             backgroundColor: "#FFF",
           }}
         >
-          <Text style={{ margin: 20, fontSize: 20, marginTop: 100 }}>
-            Write down all the people or things that make you angry and why.
+          <Text style={{ margin: 20, fontSize: 20, marginTop: 50 }}>
+            Draw your emotions on a piece of paper and upload it to the app.
           </Text>
           <Image
-            source={require("./peaceful.jpg")}
+            source={require("./sunset.png")}
             style={{
               borderRadius: 30,
-              height: 200,
-              width: 250,
+              height: 150,
+              width: 300,
               alignSelf: "center",
             }}
           />
-          <View
+          {photo && (
+            <Image
+              source={{ uri: photo.uri }}
+              style={{
+                flexDirection: "column",
+                width: 200,
+                height: 200,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            />
+          )}
+          <TouchableOpacity
             style={{
-              flex: 1,
-              flexDirection: "row",
-              width: width,
-              alignItems: "center",
+              backgroundColor: "#0000FF",
+              width: width * 0.8,
+              height: height * 0.075,
+              marginTop: height * 0.23,
+              marginLeft: width * 0.09,
+              borderRadius: 15,
+              shadowColor: "black",
+              shadowOpacity: 2,
               justifyContent: "center",
-              marginTop: -10,
+              alignItems: "center",
             }}
+            onPress={this.handlePickImage}
           >
-            <TouchableOpacity>
-              {this.state.isPlaying ? (
-                <Ionicons
-                  name="ios-pause"
-                  size={100}
-                  color="#90EE90"
-                  style={{ opacity: 1 }}
-                  onPress={() => this.handlePlayPause()}
-                />
-              ) : (
-                <Ionicons
-                  name="ios-play-circle"
-                  size={100}
-                  color="#90EE90"
-                  style={{ opacity: 1 }}
-                  onPress={() => this.handlePlayPause()}
-                />
-              )}
-            </TouchableOpacity>
-          </View>
+            <Text
+              style={{
+                color: "white",
+              }}
+            >
+              Choose Photo
+            </Text>
+          </TouchableOpacity>
           <Ionicons
             onPress={() => this.props.navigation.navigate("main")}
             name="ios-redo"
