@@ -18,7 +18,6 @@ export default class Routes extends Component {
   render() {
     return (
       <View style={styles.container}>
-        
         <TouchableOpacity
           style={{
             flex: 0,
@@ -32,7 +31,7 @@ export default class Routes extends Component {
             backgroundColor: "#90EE90",
             opacity: 0.84,
             borderRadius: 10,
-            elevation: 3
+            elevation: 3,
           }}
           onPress={() => this.props.navigation.navigate("screen1Stress")}
         >
@@ -41,6 +40,7 @@ export default class Routes extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity
+        onPress={() => this.props.navigation.navigate("screen1Sad")}
           style={{
             flex: 0,
             flexDirection: "row",
@@ -52,7 +52,7 @@ export default class Routes extends Component {
             backgroundColor: "#ADD8E6",
             opacity: 0.84,
             borderRadius: 10,
-            elevation: 3, 
+            elevation: 3,
           }}
         >
           <Text>Sadness</Text>
@@ -71,11 +71,15 @@ export default class Routes extends Component {
             backgroundColor: "#FA8072",
             opacity: 0.84,
             borderRadius: 10,
-            elevation: 3
+            elevation: 3,
           }}
+          onPress={() => this.props.navigation.navigate("MusicScreen")}
         >
           <Text>Anger</Text>
-          <Image style={styles.img} source={require("./assets/lightning.png")} />
+          <Image
+            style={styles.img}
+            source={require("./assets/lightning.png")}
+          />
         </TouchableOpacity>
       </View>
     );

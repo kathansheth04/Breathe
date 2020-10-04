@@ -17,7 +17,15 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import StressScreen1 from './components/stress/screen1Stress'
 import StressScreen2 from './components/stress/screen2Stress'
 import StressScreen3 from './components/stress/screen3Stress'
+import SadScreen1 from './components/sadness/screen1Sad'
+import SadScreen2 from './components/sadness/screen2Sad'
+import SadScreen3 from './components/sadness/screen3Sad'
+import AngerScreen1 from './components/Anger/AngerScreen1'
+import AngerScreen2 from './components/Anger/AngerScreen2'
+import AngerScreen3 from './components/Anger/AngerScreen3'
+import videoGame from './components/sadness/videoGame'
 import { Ionicons } from "@expo/vector-icons";
+import Music from "./components/Anger/Music";
 
 //creating stack and drawer navigators
 const Stack = createStackNavigator();
@@ -133,7 +141,110 @@ const App = ({ navigation }) => {
           },
         }}
       />
-      
+      <Stack.Screen
+        name="screen1Sad"
+        component={SadScreen1}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="screen2Sad"
+        component={SadScreen2}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="screen3Sad"
+        component={SadScreen3}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="videoGameScreen"
+        component={videoGame}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="MusicScreen"
+        component={Music}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="AngerScreen1"
+        component={AngerScreen1}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="AngerScreen2"
+        component={AngerScreen2}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="AngerScreen3"
+        component={AngerScreen3}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
       <Stack.Screen
         name="loginScreen"
         component={Login}
