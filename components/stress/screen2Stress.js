@@ -81,7 +81,7 @@ export default class screen2Stress extends Component {
             The right music has the power to take away all your worries. LoFi is a music genre that is very powerful 
             because of its beats and calm music to help you relax!
             </Text>
-            <Image source={require('./lofi.jpg')} style={{height: 200, width: 250, alignSelf: 'center'}}/>
+            <Image source={require('./lofi.jpg')} style={{borderRadius: 30, height: 200, width: 250, alignSelf: 'center'}}/>
             <View style={{flex: 1, flexDirection: 'row', width: width, alignItems: 'center', justifyContent: 'center', marginTop: -10}}>
                 
                 <TouchableOpacity>

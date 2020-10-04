@@ -81,7 +81,7 @@ export default class screen1Stress extends Component {
                 Close your eyes and imagine yourself on a Beach. You are sipping on your orange juice which 
                 you still don't know how you got it on the island!
             </Text>
-            <Image source={require('./beach.jpeg')} style={{height: 200, width: 250, alignSelf: 'center'}}/>
+            <Image source={require('./beach.jpeg')} style={{borderRadius: 30, height: 200, width: 250, alignSelf: 'center'}}/>
             <View style={{flex: 1, flexDirection: 'row', width: width, alignItems: 'center', justifyContent: 'center', marginTop: -10}}>
                 
                 <TouchableOpacity>
