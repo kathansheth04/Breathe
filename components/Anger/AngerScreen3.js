@@ -141,7 +141,7 @@ export default class screen1Stress extends Component {
           )}
           <TouchableOpacity
             style={{
-              backgroundColor: "#0000FF",
+              backgroundColor: "#90EE90",
               width: width * 0.8,
               height: height * 0.075,
               marginTop: height * 0.23,
@@ -156,7 +156,7 @@ export default class screen1Stress extends Component {
           >
             <Text
               style={{
-                color: "white",
+                color: "black",
               }}
             >
               Choose Photo

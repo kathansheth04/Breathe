@@ -13,14 +13,17 @@ export default class Routes extends Component {
             name2: "",
             name3: "",
             name4: "",
+            name5: "",
             address1: "",
             address2: "",
             address3: "",
             address4: "",
+            address5: "",
             phone1: "",
             phone2: "",
             phone3: "",
-            phone4: ""
+            phone4: "",
+            phone5: ""
         }
     }
     componentDidMount() {
@@ -41,14 +44,17 @@ export default class Routes extends Component {
                     name2: responseJson[1].name,
                     name3: responseJson[2].name,
                     name4: responseJson[3].name,
+                    name5: responseJson[4].name,
                     address1: responseJson[0].physical_address[0].address_1,
                     address2: responseJson[1].physical_address[0].address_1,
                     address3: responseJson[2].physical_address[0].address_1,
                     address4: responseJson[3].physical_address[0].address_1,
+                    address5: responseJson[4].physical_address[0].address_1,
                     phone1: responseJson[0].phones[0].number,
                     phone2: responseJson[1].phones[0].number,
                     phone3: responseJson[2].phones[0].number,
                     phone4: responseJson[3].phones[0].number,
+                    phone5: responseJson[4].phones[0].number,
 
                 })
             })
@@ -60,7 +66,7 @@ export default class Routes extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
-                <ScrollView style={{ flex: 1, margin: 20 }}>
+                <ScrollView style={{ flex: 1, marginBottom: 50 }}>
                     <View style={styles.cards}>
                         <Text>
                             {this.state.name1}
@@ -75,35 +81,46 @@ export default class Routes extends Component {
                         </View>
                         
                     </View>
-                    <View style={styles.cards}>
+                    <View style={{...styles.cards, backgroundColor: '#ADD8E6'}}>
                         <Text>{this.state.name2}</Text>
                         <View style={{height: 45, width: 200, flexDirection: 'row'}}>
                         <Ionicons onPress={() => Linking.openURL(`https://www.google.com/maps/place/${this.state.address2}`)}
                         style={{marginRight: 50}} name="ios-navigate" size={45}/>
                         <Ionicons onPress={() => {
-                            Linking.openURL(`tel:${this.state.phone1}`)
+                            Linking.openURL(`tel:${this.state.phone2}`)
                         }}
                         style={{marginLeft: 60, }}name="ios-call" size={45}/>
                         </View>
                     </View>
-                    <View style={styles.cards}>
+                    <View style={{...styles.cards, backgroundColor: '#90EE90'}}>
                         <Text>{this.state.name3}</Text>
                         <View style={{height: 45, width: 200, flexDirection: 'row'}}>
                         <Ionicons onPress={() => Linking.openURL(`https://www.google.com/maps/place/${this.state.address3}`)}
                         style={{marginRight: 50}} name="ios-navigate" size={45}/>
                         <Ionicons onPress={() => {
-                            Linking.openURL(`tel:${this.state.phone1}`)
+                            Linking.openURL(`tel:${this.state.phone3}`)
                         }}
                         style={{marginLeft: 60, }}name="ios-call" size={45}/>
                         </View>
                     </View>
-                    <View style={styles.cards}>
+                    <View style={{...styles.cards, backgroundColor: '#FA8072'}}>
                         <Text>{this.state.name4}</Text>
                         <View style={{height: 45, width: 200, flexDirection: 'row'}}>
                         <Ionicons onPress={() => Linking.openURL(`https://www.google.com/maps/place/${this.state.address4}`)}
                         style={{marginRight: 50}} name="ios-navigate" size={45}/>
                         <Ionicons onPress={() => {
-                            Linking.openURL(`tel:${this.state.phone1}`)
+                            Linking.openURL(`tel:${this.state.phone4}`)
+                        }}
+                        style={{marginLeft: 60, }}name="ios-call" size={45}/>
+                        </View>
+                    </View>
+                    <View style={{...styles.cards, backgroundColor: '#ADD8E6'}}>
+                        <Text>{this.state.name5}</Text>
+                        <View style={{height: 45, width: 200, flexDirection: 'row'}}>
+                        <Ionicons onPress={() => Linking.openURL(`https://www.google.com/maps/place/${this.state.address5}`)}
+                        style={{marginRight: 50}} name="ios-navigate" size={45}/>
+                        <Ionicons onPress={() => {
+                            Linking.openURL(`tel:${this.state.phone5}`)
                         }}
                         style={{marginLeft: 60, }}name="ios-call" size={45}/>
                         </View>
@@ -121,7 +138,7 @@ const styles = StyleSheet.create({
 
     },
     cards: {
-        margin: 20,
+        margin: 10,
         alignSelf: 'center',
         borderRadius: 20,
         elevation: 3,
@@ -132,7 +149,7 @@ const styles = StyleSheet.create({
         shadowOffset: { wdith: 3, height: 1 },
         shadowColor: "#000000",
         shadowOpacity: 0.3,
-        shadowRadius: 2,
+        shadowRadius: 3,
         alignItems: "center",
         justifyContent: "center",
     }
