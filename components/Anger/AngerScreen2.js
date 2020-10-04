@@ -45,7 +45,6 @@ export default class screen1Stress extends Component {
   }
 
   updateTimer=()=>{
-      
     const x = setInterval(()=>{
       let { eventDate} = this.state
 
