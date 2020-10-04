@@ -53,7 +53,7 @@ export default class Settings extends Component {
               onPress={() => {
                 this.props.navigation.navigate("UpdateName");
               }}
-              style={{ color: "#FFFFFF", fontSize: 15, marginTop: 15 }}
+              style={{ color: "#000", fontSize: 15, marginTop: 15 }}
             >
               Change your username
             </Text>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   settings: {
-    color: "#FFFFFF",
+    color: "#000",
     fontSize: 15,
     marginTop: height * 0.03,
   },
@@ -119,13 +119,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#E55B46",
     opacity: 0.8,
     shadowOffset: { wdith: 3, height: 1 },
-    shadowColor: "#000000",
+    shadowColor: "#fff",
     shadowOpacity: 0.3,
     shadowRadius: 2,
     alignItems: "center",
     justifyContent: "center",
   },
   ListItem: {
+    borderColor: '#000',
     width: width * 0.7,
     alignItems: "center",
     marginTop: -20,

@@ -118,7 +118,7 @@ export default class Music extends Component {
                 <Ionicons
                   name="ios-pause"
                   size={100}
-                  color="#90EE90"
+                  color="#FA8072"
                   style={{ opacity: 1 }}
                   onPress={() => this.handlePlayPause()}
                 />
@@ -126,7 +126,7 @@ export default class Music extends Component {
                 <Ionicons
                   name="ios-play-circle"
                   size={100}
-                  color="#90EE90"
+                  color="#FA8072"
                   style={{ opacity: 1 }}
                   onPress={() => this.handlePlayPause()}
                 />
@@ -141,7 +141,7 @@ export default class Music extends Component {
               marginBottom: 120,
               alignSelf: "flex-end",
               marginEnd: 20,
-              color: "#90EE90",
+              color: "#FA8072",
             }}
           />
         </View>
@@ -156,7 +156,7 @@ const { height, width } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#90EE90",
+    backgroundColor: "#FA8072",
     opacity: 0.7,
     alignItems: "center",
     justifyContent: "center",

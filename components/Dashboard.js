@@ -18,6 +18,9 @@ export default class Routes extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={{marginBottom: 50, fontSize: 25}}>
+          Pick A Therapy
+        </Text>
         <TouchableOpacity
           style={{
             flex: 0,
