@@ -130,6 +130,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: -20,
     marginLeft: width * 0.00005,
-    borderWidth: 0,
   },
 });

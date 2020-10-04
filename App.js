@@ -10,13 +10,16 @@ import Login from "./components/Login";
 import Settings from "./components/Settings";
 import Intro from "./components/Intro";
 import Register from "./components/Register";
+import AngerScreen1 from "./components/Anger/AngerScreen1";
+import AngerScreen2 from "./components/Anger/AngerScreen2";
+import AngerScreen3 from "./components/Anger/AngerScreen3";
 import Routes from "./components/Dashboard";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
-import StressScreen1 from './components/stress/screen1Stress'
-import StressScreen2 from './components/stress/screen2Stress'
-import StressScreen3 from './components/stress/screen3Stress'
+import StressScreen1 from "./components/stress/screen1Stress";
+import StressScreen2 from "./components/stress/screen2Stress";
+import StressScreen3 from "./components/stress/screen3Stress";
 import { Ionicons } from "@expo/vector-icons";
 
 //creating stack and drawer navigators
@@ -60,7 +63,7 @@ function tabNavigator() {
         },
       }}
     >
-      <Tab.Screen name="Dashboard" component={Routes}/>
+      <Tab.Screen name="Dashboard" component={Routes} />
       <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );
@@ -133,7 +136,45 @@ const App = ({ navigation }) => {
           },
         }}
       />
-      
+      <Stack.Screen
+        name="AngerScreen1"
+        component={AngerScreen1}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="AngerScreen2"
+        component={AngerScreen2}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="AngerScreen3"
+        component={AngerScreen3}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
       <Stack.Screen
         name="loginScreen"
         component={Login}
@@ -183,10 +224,10 @@ const App = ({ navigation }) => {
           gestureEnabled: false,
           headerStyle: {
             backgroundColor: "#E55B46",
-            opacity: 0.8
+            opacity: 0.8,
           },
           headerLeft: null,
-          headerTitle: 'Home'
+          headerTitle: "Home",
         }}
       />
     </Stack.Navigator>
