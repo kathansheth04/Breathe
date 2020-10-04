@@ -7,9 +7,10 @@ import {
   SafeAreaView,
 } from "react-native";
 import Login from "./components/Login";
+import Settings from "./components/Settings";
 import Intro from "./components/Intro";
 import Register from "./components/Register";
-import Routes from "./components/PlaceHolder";
+import Routes from "./components/Dashboard";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
@@ -28,19 +29,24 @@ function tabNavigator() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === "Routes") {
-            iconName = "ios-options";
+          if (route.name === "Dashboard") {
+            iconName = "ios-home";
+          } else if (route.name === "Settings") {
+            iconName = "ios-settings";
           }
 
           // You can return any component that you like here!
-          return <Ionicons name={iconName} size={25} color={color} />;
+          return <Ionicons name={iconName} size={25} color={"white"} />;
         },
       })}
       tabBarOptions={{
-        activeBackgroundColor: "#2C2B2A",
-        inactiveBackgroundColor: "#2C2B2A",
+        activeBackgroundColor: "#E55B46",
+        inactiveBackgroundColor: "#E55B46",
+        opacity: 0.1,
+        activeTintColor: "#FFFFFF",
+        inactiveTintColor: "#FFFFFF",
         style: {
-          backgroundColor: "#2C2B2A",
+          backgroundColor: "#E55B46",
           position: "absolute",
           height: Platform.select({
             ios: () => 80,
@@ -53,7 +59,8 @@ function tabNavigator() {
         },
       }}
     >
-      <Tab.Screen name="Routes" component={Routes} />
+      <Tab.Screen name="Dashboard" component={Routes}/>
+      <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );
 }
@@ -72,83 +79,83 @@ const myOptions = {
 //Consists of Stack Navigator with all the screens and drawer navigator nested inside
 const App = ({ navigation }) => {
   return (
-      <Stack.Navigator>
-        <Stack.Screen
-          name="loadingScreen"
-          component={Intro}
-          options={{
-            ...myOptions,
-            headerShown: false,
-            gestureEnabled: false,
-            headerStyle: {
-              backgroundColor: "#E55B46",
-              shadowColor: "transparent",
-            },
-          }}
-        />
-        <Stack.Screen
-          name="loginScreen"
-          component={Login}
-          options={{
-            ...myOptions,
-            headerShown: false,
-            headerLeft: null,
-            gestureEnabled: false,
-            headerStyle: {
-              backgroundColor: "#E55B46",
-              shadowColor: "transparent",
-            },
-          }}
-        />
-        <Stack.Screen
-          name="registerScreen"
-          component={Register}
-          options={{
-            ...myOptions,
-            headerShown: false,
-            gestureEnabled: false,
-            headerStyle: {
-              backgroundColor: "#E55B46",
-              shadowColor: "transparent",
-            },
-          }}
-        />
-        <Stack.Screen
-          name="routesScreen"
-          component={Routes}
-          options={{
-            ...myOptions,
-            headerShown: false,
-            headerLeft: null,
-            gestureEnabled: false,
-            headerStyle: {
-              backgroundColor: "#E55B46",
-              shadowColor: "transparent",
-            },
-          }}
-        />
-        <Stack.Screen
-          name="main"
-          component={tabNavigator}
-          options={{
-            ...myOptions,
-            headerShown: false,
-            gestureEnabled: false,
-            headerStyle: {
-              backgroundColor: "#E55B46",
-              shadowColor: "transparent",
-            },
-          }}
-        />
-      </Stack.Navigator>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="loadingScreen"
+        component={Intro}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="loginScreen"
+        component={Login}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          headerLeft: null,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="registerScreen"
+        component={Register}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            opacity: 0.8,
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="routesScreen"
+        component={Routes}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            opacity: 0.8,
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="main"
+        component={tabNavigator}
+        options={{
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            opacity: 0.8
+          },
+          headerLeft: null,
+          headerTitle: 'Home'
+        }}
+      />
+    </Stack.Navigator>
   );
 };
 //export the navigation
 export default () => {
   return (
     <NavigationContainer>
-      <App/>
+      <App />
     </NavigationContainer>
   );
 };
-

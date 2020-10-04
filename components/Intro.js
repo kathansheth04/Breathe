@@ -50,19 +50,12 @@ export default class Intro extends Component {
           source={logo}
           style={{
             marginTop: -height * 0.15,
-            height: height * 0.7,
-            width: width * 0.9,
-            alignItems: "center",
+            height: height * 0.4,
+            width: width * 0.6,
+            alignSelf: "center",
           }}
         />
-        {/*loading bar*/}
-        <ProgressBarAndroid
-          style={styles.ActivityIndicator}
-          styleAttr="Horizontal"
-          color="#FFFFFF"
-          indeterminate={true}
-          width={150}
-        />
+        <ActivityIndicator style={{position: 'absolute', bottom: 100}}size="large" color="#FFF"/>
       </View>
     );
   }
@@ -75,6 +68,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#E55B46", 
+    opacity: 0.8,
     alignItems: "center",
     justifyContent: "center",
   },

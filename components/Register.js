@@ -16,14 +16,13 @@ import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import * as firebase from "firebase";
 import logo from "./assets/logo.png";
 import FireBase from "./config/FireBase";
-
+import GoogleIcon from './assets/GoogleIcon.png'
 //Registeration Screen
 export default class Register extends React.Component {
   constructor(props) {
     super(props);
     //parameters required for user registeration
     this.state = {
-      name: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -36,7 +35,6 @@ export default class Register extends React.Component {
   //function to sign up user
   signupUser = () => {
     const userData = {
-      name: this.state.name,
       email: this.state.email,
       password: this.state.password,
       confirmPassword: this.state.confirmPassword,
@@ -52,7 +50,6 @@ export default class Register extends React.Component {
         Alert.alert("Passwords do not match. Please try again");
         return;
       } else if (
-        this.state.name.toString() == "" ||
         this.state.email.toString() == "" ||
         this.state.password.toString() == "" ||
         this.state.confirmPassword.toString() == ""
@@ -64,20 +61,8 @@ export default class Register extends React.Component {
         .auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
         //username will be added in the firebase database
-        .then(() =>
-          firebase
-            .firestore()
-            .doc(`/users/${firebase.auth().currentUser.uid}`)
-            .set({
-              email: this.state.email,
-              password: this.state.password,
-              confirmPassword: this.state.confirmPassword,
-              name: this.state.name,
-              createdOn: new Date().toISOString(),
-              userId: firebase.auth().currentUser.uid,
-            })
-        )
         .then(() => this.props.navigation.navigate("main"));
+        
     } catch (error) {
       //if user cannot be logged in at the moment, he will be alerted
       console.log("error");
@@ -87,75 +72,51 @@ export default class Register extends React.Component {
   //JSX design/layout of the register screen
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView>
-          <Image style={{ ...styles.logo }} source={logo}></Image>
-
-          <Text style={styles.Title}>Your artificial Budgeting Manager</Text>
-
-          <TextInput
-            style={{
-              borderWidth: 0,
-              color: "#FFFFFF",
-              marginLeft: width * 0.03,
-              borderBottomColor: "#606060",
-              borderBottomWidth: height * 0.001,
-              height: height * 0.05,
-              width: width * 0.75,
-              marginTop: height * 0.05,
-            }}
-            onChangeText={(name) => this.setState({ name })}
-            placeholder="Name"
-            placeholderTextColor="#FFFFFF"
-          />
-          <TextInput
-            style={styles.TextInput}
+      <KeyboardAvoidingView style={styles.container}>
+        
+        <View style={{
+          borderRadius: 30,
+          height: height,
+          width: width,
+          opacity: 1,
+          marginTop: height*0.4, 
+          justifyContent: 'center', 
+          alignContent: 'center', 
+          backgroundColor: '#FFFCFC',}}>
+            <Image style={{marginTop: -280, height: 250, width: 250, alignSelf: 'center'}}source={logo}/>
+            <TextInput
+            style={styles.Email}
             onChangeText={(email) => this.setState({ email })}
             placeholder="Email"
-            placeholderTextColor="#FFFFFF"
+            placeholderTextColor="#2C2F33"
             autoCapitalize="none"
           />
           <TextInput
-            style={styles.TextInput}
+            style={styles.password}
+            secureTextEntry={true}
             onChangeText={(password) => this.setState({ password })}
             placeholder="Password"
-            placeholderTextColor="#FFFFFF"
-            secureTextEntry={true}
             autoCapitalize="none"
+            placeholderTextColor="#2C2F33"
           />
-
           <TextInput
-            style={styles.TextInput}
-            onChangeText={(confirmPassword) =>
-              this.setState({ confirmPassword })
-            }
-            placeholder="Confirm Password"
-            placeholderTextColor="#FFFFFF"
+            style={{...styles.password, marginTop: -60}}
             secureTextEntry={true}
+            onChangeText={(confirmPassword) => this.setState({ confirmPassword })}
+            placeholder="Confirm Password"
             autoCapitalize="none"
+            placeholderTextColor="#2C2F33"
           />
-
-          <TouchableOpacity
-            style={styles.Login}
-            onPress={() => {
-              this.signupUser(this.state.name);
-            }}
-          >
-            <Text style={{ fontSize: 18, color: "#fff" }}>Sign up</Text>
+          <TouchableOpacity style={styles.Login} onPress={() => this.signupUser()}>
+            <Text style={{fontSize: 22}}>Sign In</Text>
           </TouchableOpacity>
-
-          <Text
-            style={styles.signUp}
-            onPress={() => {
-              this.props.navigation.navigate("loginScreen");
-            }}
-          >
-            Already have an account? Sign in
-          </Text>
-
-          <View style={styles.placeholder}></View>
-        </ScrollView>
-      </View>
+          
+        <Text style={{marginTop: 50, alignSelf: 'center'}} 
+        onPress={() => this.props.navigation.navigate("loginScreen")}>
+          Don't have an account? Sign Up
+        </Text>
+        </View>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -168,25 +129,90 @@ const { height, width } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#2C2F33",
+    backgroundColor: "#E55B46",
+    opacity: 0.7,
     alignItems: "center",
     justifyContent: "center",
   },
-  TextInput: {
+  buttonGPlusStyle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    backgroundColor: '#FFFFFF',
+    padding: height * 0.016,
+    borderRadius: 50,
+    borderWidth: 1,
+    borderColor: 'transparent',
+    elevation: 3,
+    shadowColor: 'rgba(0,0,0, .4)', 
+    shadowOffset: { height: 3, width: 3 }, 
+    shadowOpacity: 3, 
+    shadowRadius: 3, 
+    width: width * 0.9,
+    marginBottom: height*0.1
+  },
+  
+  buttonTextStyle: {
+    color: '#000000',
+  },
+  Email: {
     borderWidth: 0,
-    color: "#FFFFFF",
+    color: "#000",
     borderBottomColor: "#606060",
     borderBottomWidth: height * 0.001,
-    marginLeft: width * 0.03,
-    marginTop: height * 0.02,
+    alignSelf: 'center',
     height: height * 0.05,
     width: width * 0.75,
+  },
+  buttonImageIconStyle: {
+    padding: 10,
+    margin: 5,
+    height: 25,
+    width: 25,
+    resizeMode: 'stretch',
   },
   logo: {
     height: height * 0.5,
     width: width * 0.9,
   },
+  password: {
+    borderWidth: 0,
+    color: "#000",
+    borderBottomColor: "#606060",
+    borderBottomWidth: height * 0.001,
+    marginTop: height*0.03,
+    marginBottom: height*0.1,
+    alignSelf: 'center',
+    height: height * 0.05,
+    width: width * 0.75,
+  },
   Login: {
+    alignSelf: "center",
+    alignItems: 'center',
+    backgroundColor: '#E55B46',
+    padding: height * 0.016,
+    borderRadius: 50,
+    borderWidth: 1,
+    borderColor: 'transparent',
+    elevation: 3,
+    shadowColor: 'rgba(0,0,0, .4)', 
+    shadowOffset: { height: 3, width: 3 }, 
+    shadowOpacity: 3, 
+    shadowRadius: 3, 
+    width: width * 0.9,
+    marginBottom: 40
+  },
+  passwordReset1: {
+    color: "#FFF",
+    textAlign: "center",
+    marginTop: height * 0.03,
+    fontFamily: Platform.select({
+      ios: () => "AppleSDGothicNeo-Thin",
+      android: () => "sans-serif-thin",
+    })(),
+  },
+  passwordReset2: {
     alignItems: "center",
     padding: height * 0.016,
     borderRadius: 10,
@@ -195,18 +221,22 @@ const styles = StyleSheet.create({
     borderTopColor: "#FFF",
     borderRightColor: "#FFF",
     borderLeftColor: "#FFF",
-    marginTop: height * 0.05,
     width: width * 0.9,
-  },
-  signUp: {
-    color: "#FFFFFF",
     marginTop: height * 0.03,
-    textAlign: "center",
+    fontFamily: Platform.select({
+      ios: () => "AppleSDGothicNeo-Thin",
+      android: () => "sans-serif-thin",
+    })(),
   },
   Title: {
     color: "#FFF",
     fontSize: 15,
+    fontFamily: Platform.select({
+      ios: () => "AppleSDGothicNeo-Thin",
+      android: () => "sans-serif-thin",
+    })(),
     marginTop: -height * 0.1,
     textAlign: "center",
+    justifyContent: "center",
   },
 });
