@@ -1,21 +1,19 @@
-import React, { Component, useEffect } from "react";
+import React, { Component } from "react";
 import {
   Button,
   Image,
-  Platform,
   StyleSheet,
-  KeyboardAvoidingView,
-  UIManager,
   Text,
   View,
   Alert,
-  TextInput,
+  ProgressBarAndroid,
   Dimensions,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import Ionicons from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
+import { Audio } from "expo-av";
 
-export default class AngerScreen1 extends Component {
+export default class screen1Stress extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,7 +42,7 @@ export default class AngerScreen1 extends Component {
 
     try {
       const playbackInstance = new Audio.Sound();
-      const source = require("../stress/Beach-ambience.mp3");
+      const source = require("./Breathe.mp3");
 
       const status = {
         shouldPlay: isPlaying,
@@ -89,7 +87,7 @@ export default class AngerScreen1 extends Component {
           }}
         >
           <Text style={{ margin: 20, fontSize: 20, marginTop: 100 }}>
-            Write down all the people or things that make you angry and why?
+            Write down all the people or things that make you angry and why.
           </Text>
           <Image
             source={require("./peaceful.jpg")}
@@ -146,6 +144,7 @@ export default class AngerScreen1 extends Component {
     );
   }
 }
+
 const { height, width } = Dimensions.get("window");
 
 //stylesheet
