@@ -10,20 +10,20 @@ import Login from "./components/Login";
 import Settings from "./components/Settings";
 import Intro from "./components/Intro";
 import Register from "./components/Register";
-import AngerScreen1 from "./components/Anger/AngerScreen1";
-import AngerScreen2 from "./components/Anger/AngerScreen2";
-import AngerScreen3 from "./components/Anger/AngerScreen3";
 import Routes from "./components/Dashboard";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
-import StressScreen1 from "./components/stress/screen1Stress";
-import StressScreen2 from "./components/stress/screen2Stress";
-import StressScreen3 from "./components/stress/screen3Stress";
-import SadScreen1 from "./components/sadness/screen1Sad";
-import SadScreen2 from "./components/sadness/screen2Sad";
-import SadScreen3 from "./components/sadness/screen3Sad";
-import videoGame from "./components/sadness/videoGame";
+import StressScreen1 from './components/stress/screen1Stress'
+import StressScreen2 from './components/stress/screen2Stress'
+import StressScreen3 from './components/stress/screen3Stress'
+import SadScreen1 from './components/sadness/screen1Sad'
+import SadScreen2 from './components/sadness/screen2Sad'
+import SadScreen3 from './components/sadness/screen3Sad'
+import AngerScreen1 from './components/Anger/AngerScreen1'
+import AngerScreen2 from './components/Anger/AngerScreen2'
+import AngerScreen3 from './components/Anger/AngerScreen3'
+import videoGame from './components/sadness/videoGame'
 import { Ionicons } from "@expo/vector-icons";
 
 //creating stack and drawer navigators
@@ -67,7 +67,7 @@ function tabNavigator() {
         },
       }}
     >
-      <Tab.Screen name="Dashboard" component={Routes} />
+      <Tab.Screen name="Dashboard" component={Routes}/>
       <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );
@@ -141,8 +141,6 @@ const App = ({ navigation }) => {
         }}
       />
       <Stack.Screen
-        name="AngerScreen1"
-        component={AngerScreen1}
         name="screen1Sad"
         component={SadScreen1}
         options={{
@@ -156,8 +154,6 @@ const App = ({ navigation }) => {
         }}
       />
       <Stack.Screen
-        name="AngerScreen2"
-        component={AngerScreen2}
         name="screen2Sad"
         component={SadScreen2}
         options={{
@@ -171,8 +167,6 @@ const App = ({ navigation }) => {
         }}
       />
       <Stack.Screen
-        name="AngerScreen3"
-        component={AngerScreen3}
         name="screen3Sad"
         component={SadScreen3}
         options={{
@@ -188,6 +182,45 @@ const App = ({ navigation }) => {
       <Stack.Screen
         name="videoGameScreen"
         component={videoGame}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="AngerScreen1"
+        component={AngerScreen1}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="AngerScreen2"
+        component={AngerScreen2}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="AngerScreen3"
+        component={AngerScreen3}
         options={{
           ...myOptions,
           headerShown: false,
@@ -247,10 +280,10 @@ const App = ({ navigation }) => {
           gestureEnabled: false,
           headerStyle: {
             backgroundColor: "#E55B46",
-            opacity: 0.8,
+            opacity: 0.8
           },
           headerLeft: null,
-          headerTitle: "Home",
+          headerTitle: 'Home'
         }}
       />
     </Stack.Navigator>

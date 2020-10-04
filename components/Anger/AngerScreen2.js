@@ -92,7 +92,7 @@ export default class AngerScreen1 extends Component {
             Write down all the people or things that make you angry and why?
           </Text>
           <Image
-            source={require("../assets/peaceful.jpg")}
+            source={require("./peaceful.jpg")}
             style={{
               borderRadius: 30,
               height: 200,
