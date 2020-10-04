@@ -25,6 +25,7 @@ import AngerScreen2 from './components/Anger/AngerScreen2'
 import AngerScreen3 from './components/Anger/AngerScreen3'
 import videoGame from './components/sadness/videoGame'
 import { Ionicons } from "@expo/vector-icons";
+import TestingSites from './components/TestingSites'
 import Music from "./components/Anger/Music";
 
 //creating stack and drawer navigators
@@ -42,6 +43,8 @@ function tabNavigator() {
             iconName = "ios-home";
           } else if (route.name === "Settings") {
             iconName = "ios-settings";
+          } else if (route.name === "Testing Sites") {
+            iconName = "ios-compass"
           }
 
           // You can return any component that you like here!
@@ -69,7 +72,9 @@ function tabNavigator() {
       }}
     >
       <Tab.Screen name="Dashboard" component={Routes}/>
+      <Tab.Screen name="Testing Sites" component={TestingSites} />
       <Tab.Screen name="Settings" component={Settings} />
+      
     </Tab.Navigator>
   );
 }

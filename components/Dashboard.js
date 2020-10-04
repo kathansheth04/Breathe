@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   img: {
-    height: height * 0.09,
+    height: height * 0.095,
     width: width * 0.2,
   },
 });

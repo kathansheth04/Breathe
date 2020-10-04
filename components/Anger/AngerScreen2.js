@@ -6,7 +6,7 @@ import {
   Text,
   View,
   Alert,
-  ProgressBarAndroid,
+  TextInput,
   Dimensions,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -86,16 +86,31 @@ export default class screen1Stress extends Component {
             backgroundColor: "#FFF",
           }}
         >
-          <Text style={{ margin: 20, fontSize: 20, marginTop: 100 }}>
-            Write down all the people or things that make you angry and why.
+          <Text style={{ margin: 20, fontSize: 20, marginTop: 50 }}>
+            Think on whether your anger is justified or not and now write what
+            you can do to prevent yourself from being angry in the future.
           </Text>
           <Image
-            source={require("./peaceful.jpg")}
+            source={require("./waterdrop.jpg")}
             style={{
               borderRadius: 30,
-              height: 200,
-              width: 250,
+              height: 150,
+              width: 300,
               alignSelf: "center",
+            }}
+          />
+          <TextInput
+            multiline={true}
+            textAlignVertical="top"
+            style={{
+              width: width * 0.8,
+              height: height * 0.25,
+              borderColor: "black",
+              borderWidth: 1,
+              marginTop: height * 0.05,
+              marginLeft: width * 0.085,
+              padding: 15,
+              borderRadius: 30,
             }}
           />
           <View
@@ -107,27 +122,7 @@ export default class screen1Stress extends Component {
               justifyContent: "center",
               marginTop: -10,
             }}
-          >
-            <TouchableOpacity>
-              {this.state.isPlaying ? (
-                <Ionicons
-                  name="ios-pause"
-                  size={100}
-                  color="#90EE90"
-                  style={{ opacity: 1 }}
-                  onPress={() => this.handlePlayPause()}
-                />
-              ) : (
-                <Ionicons
-                  name="ios-play-circle"
-                  size={100}
-                  color="#90EE90"
-                  style={{ opacity: 1 }}
-                  onPress={() => this.handlePlayPause()}
-                />
-              )}
-            </TouchableOpacity>
-          </View>
+          ></View>
           <Ionicons
             onPress={() => this.props.navigation.navigate("AngerScreen3")}
             name="ios-redo"
