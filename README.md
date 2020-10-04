@@ -26,6 +26,6 @@ https://youtube.com/watch?v=7k7zZYxIyQ0&feature=youtu.be
 
 # Team
 
-* Samarth Shah (samarthandroid145@gmail.com)
+* Sashv Dave (davesashv@gmail.com)
 * Kathan Sheth (sheth.kathan04@gmail.com)
 * Ved Joshi (behumble1907@gmail.com)
