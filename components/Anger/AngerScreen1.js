@@ -12,17 +12,21 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 import { Audio } from "expo-av";
+import moment from "moment"
 
 export default class screen1Stress extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isPlaying: false,
+      eventDate:moment.duration().add({hours:0,minutes:1,seconds:0}), 
+      mins:1,
+      secs:0,
       response: ""
-      
     };
   }
   async componentDidMount() {
+    this.updateTimer()
     try {
       await Audio.setAudioModeAsync({
         allowsRecordingIOS: false,
@@ -38,6 +42,30 @@ export default class screen1Stress extends Component {
     } catch (e) {
       console.log(e);
     }
+  }
+
+  updateTimer=()=>{
+      
+    const x = setInterval(()=>{
+      let { eventDate} = this.state
+
+      if(eventDate <=0){
+        clearInterval(x)
+      }else {
+        eventDate = eventDate.subtract(1,"s")
+        const hours = eventDate.hours()
+        const mins = eventDate.minutes()
+        const secs = eventDate.seconds()
+        
+        this.setState({
+          hours,
+          mins,
+          secs,
+          eventDate
+        })
+      }
+    },1000)
+
   }
   async loadAudio() {
     const { currentIndex, isPlaying, volume } = this.state;
@@ -77,6 +105,7 @@ export default class screen1Stress extends Component {
 
   //layout of the page
   render() {
+    const { mins, secs } = this.state
     return (
       <View style={styles.container}>
         <View
@@ -88,8 +117,12 @@ export default class screen1Stress extends Component {
             backgroundColor: "#FFF",
           }}
         >
-          <Text style={{ margin: 20, fontSize: 20, marginTop: 50 }}>
-            Write down all the people or things that make you angry and why.
+          <Text style={{fontWeight:"bold",fontSize:30, alignItems: 'center', textAlign: 'center', marginTop: 10}}>
+              {`0${mins} : ${secs}`}
+            </Text>
+
+          <Text style={{ margin: 20, fontSize: 20, marginTop: 20, textAlign: 'center' }}>
+            Write down all the people or things that make you angry and why. Try to adhere to the time as much as possible. 
           </Text>
           <Image
             source={require("./peaceful.jpg")}
@@ -103,9 +136,11 @@ export default class screen1Stress extends Component {
           <TextInput
             onChangeText={(response) => this.setState({ response })}
             multiline={true}
+            placeholder = "Enter your items here!"
+            placeholderTextColor = '#2C2F33'
             textAlignVertical="top"
             style={{
-              width: width * 0.8,
+              width: width * 0.825,
               height: height * 0.25,
               borderColor: "black",
               borderWidth: 1,

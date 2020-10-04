@@ -10,6 +10,7 @@ import {
   Dimensions,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import moment from "moment"
 import { Ionicons } from "@expo/vector-icons";
 import {Audio} from 'expo-av'
 
@@ -17,11 +18,15 @@ export default class screen1Stress extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isPlaying: false
-        }
+            isPlaying: false, 
+            eventDate:moment.duration().add({hours:0,minutes:1,seconds:30}), 
+            mins:1,
+            secs:30
+      }
         
     }
     async componentDidMount() {
+      this.updateTimer()
         try {
           await Audio.setAudioModeAsync({
             allowsRecordingIOS: false,
@@ -38,6 +43,31 @@ export default class screen1Stress extends Component {
           console.log(e)
         }
       }
+
+      updateTimer=()=>{
+    
+        const x = setInterval(()=>{
+          let { eventDate} = this.state
+    
+          if(eventDate <=0){
+            clearInterval(x)
+          }else {
+            eventDate = eventDate.subtract(1,"s")
+            const hours = eventDate.hours()
+            const mins = eventDate.minutes()
+            const secs = eventDate.seconds()
+            
+            this.setState({
+              hours,
+              mins,
+              secs,
+              eventDate
+            })
+          }
+        },1000)
+    
+      }
+
       async loadAudio() {
         const {currentIndex, isPlaying, volume} = this.state
        
@@ -74,15 +104,21 @@ export default class screen1Stress extends Component {
 
   //layout of the page
   render() {
+    const { hours, mins, secs } = this.state
     return (
       <View style={styles.container}>
         <View style={{height: height, width: width, marginTop: height*0.3, borderRadius: 40, backgroundColor: '#FFF'}}>
-            <Text style={{margin: 20, fontSize: 20, marginTop: 100}}>
+        <View>
+        </View>
+            <Text style={{fontWeight:"bold",fontSize:30, alignItems: 'center', textAlign: 'center', marginTop: 10}}>
+              {`0${mins} : ${secs}`}
+            </Text>
+            <Text style={{margin: 20, fontSize: 20, marginTop: 10, textAlign: 'center'}}>
                 Close your eyes and imagine yourself on a Beach. You are sipping on your orange juice which 
                 you still don't know how you got it on the island!
             </Text>
-            <Image source={require('./beach.jpeg')} style={{borderRadius: 30, height: 200, width: 250, alignSelf: 'center'}}/>
-            <View style={{flex: 1, flexDirection: 'row', width: width, alignItems: 'center', justifyContent: 'center', marginTop: -10}}>
+            <Image source={require('./beach.jpeg')} style={{borderRadius: 30, height: 200, width: 250, alignSelf: 'center', marginTop: 20}}/>
+            <View style={{flex: 1, flexDirection: 'row', width: width, alignItems: 'center', justifyContent: 'center', marginTop: 50}}>
                 
                 <TouchableOpacity>
                     {
@@ -97,6 +133,7 @@ export default class screen1Stress extends Component {
             </View>
             <Ionicons onPress={() => this.props.navigation.navigate("screen2Stress")}
             name='ios-redo' size={35} style={{marginBottom: 120, alignSelf: 'flex-end', marginEnd: 20, color: '#90EE90'}}/>
+            
         </View>
 
       </View>

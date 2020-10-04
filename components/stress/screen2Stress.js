@@ -12,16 +12,21 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 import {Audio} from 'expo-av'
+import moment from "moment"
 
 export default class screen2Stress extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isPlaying: false
+            isPlaying: false,
+            eventDate:moment.duration().add({hours:0,minutes:3,seconds:0}), 
+            mins:3,
+            secs:0
         }
         
     }
     async componentDidMount() {
+      this.updateTimer()
         try {
           await Audio.setAudioModeAsync({
             allowsRecordingIOS: false,
@@ -38,6 +43,31 @@ export default class screen2Stress extends Component {
           console.log(e)
         }
       }
+
+      updateTimer=()=>{
+    
+        const x = setInterval(()=>{
+          let { eventDate} = this.state
+    
+          if(eventDate <=0){
+            clearInterval(x)
+          }else {
+            eventDate = eventDate.subtract(1,"s")
+            const hours = eventDate.hours()
+            const mins = eventDate.minutes()
+            const secs = eventDate.seconds()
+            
+            this.setState({
+              hours,
+              mins,
+              secs,
+              eventDate
+            })
+          }
+        },1000)
+    
+      } 
+
       async loadAudio() {
         const {currentIndex, isPlaying, volume} = this.state
        
@@ -74,15 +104,19 @@ export default class screen2Stress extends Component {
 
   //layout of the page
   render() {
+    const { mins, secs } = this.state
     return (
       <View style={styles.container}>
         <View style={{height: height, width: width, marginTop: height*0.3, borderRadius: 40, backgroundColor: '#FFF'}}>
-            <Text style={{margin: 20, fontSize: 20, marginTop: 100}}>
+            <Text style={{fontWeight:"bold",fontSize:30, alignItems: 'center', textAlign: 'center', marginTop: 10}}>
+              {`0${mins} : ${secs}`}
+            </Text>
+            <Text style={{margin: 20, fontSize: 20, marginTop: 10, textAlign: 'center'}}>
             The right music has the power to take away all your worries. LoFi is a music genre that is very powerful 
             because of its beats and calm music that help you relax!
             </Text>
             <Image source={require('./lofi.jpg')} style={{borderRadius: 30, height: 200, width: 250, alignSelf: 'center'}}/>
-            <View style={{flex: 1, flexDirection: 'row', width: width, alignItems: 'center', justifyContent: 'center', marginTop: -10}}>
+            <View style={{flex: 1, flexDirection: 'row', width: width, alignItems: 'center', justifyContent: 'center', marginTop: 50}}>
                 
                 <TouchableOpacity>
                     {

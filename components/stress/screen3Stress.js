@@ -24,11 +24,9 @@ export default class screen2Stress extends Component {
     return (
       <View style={styles.container}>
         <View style={{height: height, width: width, marginTop: height*0.3, borderRadius: 40, backgroundColor: '#FFF'}}>
-        <Text style={{margin: 20, fontSize: 20, marginTop: 100}}>
-            Cooking something that you truly like 
-            eating or drinking can be very beneficial. Eating what you 
-            like can not only uplift your mood but the process of cooking
-            can be really relaxing!
+        <Text style={{margin: 20, fontSize: 20, marginTop: 60, textAlign: 'center'}}>
+            Cooking something that you truly like eating or drinking can be very beneficial. Eating what you like can not only
+            uplift your mood but the process of cooking can be really relaxing!
         </Text>
         <Image source={require('./hotchocolate.jpg')} style={{borderRadius: 30, height: 200, width: 250, alignSelf: 'center'}}/>
             <View style={{flex: 1, flexDirection: 'row', width: width, alignItems: 'center', justifyContent: 'center', marginTop: 80}}>
