@@ -29,9 +29,8 @@ export default class screen2Sad extends Component {
       <View style={styles.container}>
         <View style={{height: height, width: width, marginTop: height*0.3, borderRadius: 40, backgroundColor: '#FFF'}}>
             <Text style={{margin: 20, fontSize: 20, marginTop: 100}}>
-            Cycling boosts your mood in the same way all physical exercise 
-            makes you happy by influencing the release and uptake of chemicals 
-            in your brain that make you feel good. Take a ride on this route!
+            Reading funny comic books or stories can help uplift your mood. Let's read a
+            some that are not only short but hilarious!
             </Text>
             <Image source={require('./comic.jpg')} style={{borderRadius: 30, height: 200, width: 250, alignSelf: 'center', marginBottom: 60}}/>
             <View style={{flex: 1, flexDirection: 'row', width: width, alignItems: 'center', justifyContent: 'center'}}>
