@@ -73,7 +73,7 @@ export default class Routes extends Component {
             borderRadius: 10,
             elevation: 3,
           }}
-          onPress={() => this.props.navigation.navigate("AngerScreen1")}
+          onPress={() => this.props.navigation.navigate("MusicScreen")}
         >
           <Text>Anger</Text>
           <Image

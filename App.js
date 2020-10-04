@@ -25,6 +25,7 @@ import AngerScreen2 from './components/Anger/AngerScreen2'
 import AngerScreen3 from './components/Anger/AngerScreen3'
 import videoGame from './components/sadness/videoGame'
 import { Ionicons } from "@expo/vector-icons";
+import Music from "./components/Anger/Music";
 
 //creating stack and drawer navigators
 const Stack = createStackNavigator();
@@ -182,6 +183,19 @@ const App = ({ navigation }) => {
       <Stack.Screen
         name="videoGameScreen"
         component={videoGame}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="MusicScreen"
+        component={Music}
         options={{
           ...myOptions,
           headerShown: false,
