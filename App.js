@@ -54,7 +54,6 @@ function tabNavigator() {
       tabBarOptions={{
         activeBackgroundColor: "#E55B46",
         inactiveBackgroundColor: "#E55B46",
-        opacity: 0.1,
         activeTintColor: "#FFFFFF",
         inactiveTintColor: "#FFFFFF",
         style: {

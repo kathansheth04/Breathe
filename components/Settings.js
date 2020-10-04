@@ -77,7 +77,7 @@ export default class Settings extends Component {
                 firebase
                   .auth()
                   .signOut()
-                  .then(() => console.log("user signed out"))
+                  .then(() => console.log("user signed out")).then(() => this.props.navigation.navigate("loginScreen"))
                   .catch((err) => {
                     console.log("unable to sign user out");
                   })
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     height: height * 0.28,
     width: width * 0.85,
     backgroundColor: "#E55B46",
-    opacity: 0.8,
+    opacity: 0.7,
     shadowOffset: { wdith: 3, height: 1 },
     shadowColor: "#fff",
     shadowOpacity: 0.3,

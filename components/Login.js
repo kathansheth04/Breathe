@@ -19,6 +19,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import * as firebase from "firebase";
 import FireBase from "./config/FireBase";
 import * as Google from "expo-google-app-auth";
+import { user } from "firebase-functions/lib/providers/auth";
 
 
 export default class Login extends Component {
@@ -129,8 +130,7 @@ export default class Login extends Component {
               // The signed-in user info.
               var user = result.user;
               console.log(user);
-              this.props.navigation.navigate('main');
-            })
+            }).then(() => this.props.navigation.navigate('main'))
             .catch(function (error) {
               // Handle Errors here.
               var errorCode = error.code;
@@ -152,12 +152,14 @@ export default class Login extends Component {
   signInWithGoogleAsync = async () => {
     try {
       const result = await Google.logInAsync({
+        expoClientID: 
+        "146881575660-qsnmho05u28votpiph6ctp6d36aarv1q.apps.googleusercontent.com",
         androidClientId:
-          "146881575660-5qp82vm70adfpog7g884kv2he87nbq94.apps.googleusercontent.com",
+          "1093991806317-s9dlssevu70ugglemapno9agfklf6i3l.apps.googleusercontent.com",
         iosClientId:
           "1093991806317-ifo35ee4ad1iemia8tcdbvqj4t6skvq2.apps.googleusercontent.com", //enter ios client id
         androidStandaloneAppClientId:
-          "146881575660-5qp82vm70adfpog7g884kv2he87nbq94.apps.googleusercontent.com",
+          "1093991806317-s9dlssevu70ugglemapno9agfklf6i3l.apps.googleusercontent.com",
         scopes: ["profile", "email"],
       });
 

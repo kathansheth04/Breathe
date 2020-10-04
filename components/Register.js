@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "#606060",
     borderBottomWidth: height * 0.001,
     marginTop: height*0.03,
-    marginBottom: height*0.1,
+    marginBottom: height*0.12,
     alignSelf: 'center',
     height: height * 0.05,
     width: width * 0.75,
