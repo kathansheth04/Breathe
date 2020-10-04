@@ -34,9 +34,10 @@ export default class Routes extends Component {
             borderRadius: 10,
             elevation: 3
           }}
+          onPress={() => this.props.navigation.navigate("screen1Stress")}
         >
-          <Text>Sadness</Text>
-          <Image style={styles.img} source={require("./assets/sunrain.png")} />
+          <Text>Stress/Anxiety</Text>
+          <Image style={styles.img} source={require("./assets/cloud.png")} />
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -54,8 +55,8 @@ export default class Routes extends Component {
             elevation: 3, 
           }}
         >
-          <Text>Stress/Anxiety</Text>
-          <Image style={styles.img} source={require("./assets/cloud.png")} />
+          <Text>Sadness</Text>
+          <Image style={styles.img} source={require("./assets/sunrain.png")} />
         </TouchableOpacity>
 
         <TouchableOpacity

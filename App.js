@@ -14,8 +14,7 @@ import Routes from "./components/Dashboard";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
-import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
-import { Avatar, Drawer } from "react-native-paper";
+import StressScreen1 from './components/stress/screen1Stress'
 import { Ionicons } from "@expo/vector-icons";
 
 //creating stack and drawer navigators
@@ -93,6 +92,20 @@ const App = ({ navigation }) => {
           },
         }}
       />
+      <Stack.Screen
+        name="screen1Stress"
+        component={StressScreen1}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      
       <Stack.Screen
         name="loginScreen"
         component={Login}
