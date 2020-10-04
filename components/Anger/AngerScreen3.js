@@ -118,33 +118,26 @@ export default class screen1Stress extends Component {
           <Text style={{ margin: 20, fontSize: 20, marginTop: 50 }}>
             Draw your emotions on a piece of paper and upload it to the app.
           </Text>
-          <Image
-            source={require("./sunset.png")}
-            style={{
-              borderRadius: 30,
-              height: 150,
-              width: 300,
-              alignSelf: "center",
-            }}
-          />
-          {photo && (
-            <Image
-              source={{ uri: photo.uri }}
-              style={{
-                flexDirection: "column",
-                width: 200,
-                height: 200,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            />
-          )}
+          
+          <View style={styles.card1}>
+            {photo && (
+              <Image
+                source={{ uri: photo.uri }}
+                style={{
+                  flexDirection: "column",
+                  width: 300,
+                  height: 250,
+                  alignSelf: 'center'
+                }}
+              />
+            )}
+          </View>
           <TouchableOpacity
             style={{
-              backgroundColor: "#90EE90",
+              backgroundColor: "#FA8072",
               width: width * 0.8,
               height: height * 0.075,
-              marginTop: height * 0.23,
+              marginTop: height * 0.13,
               marginLeft: width * 0.09,
               borderRadius: 15,
               shadowColor: "black",
@@ -170,7 +163,7 @@ export default class screen1Stress extends Component {
               marginBottom: 120,
               alignSelf: "flex-end",
               marginEnd: 20,
-              color: "#90EE90",
+              color: "#FA8072",
             }}
           />
         </View>
@@ -185,8 +178,23 @@ const { height, width } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#90EE90",
+    backgroundColor: "#FA8072",
     opacity: 0.7,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  card1: {
+    alignSelf: 'center',
+    borderRadius: 20,
+    elevation: 3,
+    height: height * 0.4,
+    width: width * 0.85,
+    backgroundColor: "#FA8072",
+    opacity: 0.8,
+    shadowOffset: { wdith: 3, height: 1 },
+    shadowColor: "#fff",
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
     alignItems: "center",
     justifyContent: "center",
   },

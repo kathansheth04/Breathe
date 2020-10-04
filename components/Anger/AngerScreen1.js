@@ -18,6 +18,8 @@ export default class screen1Stress extends Component {
     super(props);
     this.state = {
       isPlaying: false,
+      response: ""
+      
     };
   }
   async componentDidMount() {
@@ -99,6 +101,7 @@ export default class screen1Stress extends Component {
             }}
           />
           <TextInput
+            onChangeText={(response) => this.setState({ response })}
             multiline={true}
             textAlignVertical="top"
             style={{
@@ -123,14 +126,20 @@ export default class screen1Stress extends Component {
             }}
           ></View>
           <Ionicons
-            onPress={() => this.props.navigation.navigate("AngerScreen2")}
+            onPress={() => {
+              if(this.state.response === "") {
+                Alert.alert("Please complete this task before proceeding")
+              } else {
+                this.props.navigation.navigate("AngerScreen2")
+              }
+            }}
             name="ios-redo"
             size={35}
             style={{
               marginBottom: 120,
               alignSelf: "flex-end",
               marginEnd: 20,
-              color: "#90EE90",
+              color: "#FA8072",
             }}
           />
         </View>
@@ -145,7 +154,7 @@ const { height, width } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#90EE90",
+    backgroundColor: "#FA8072",
     opacity: 0.7,
     alignItems: "center",
     justifyContent: "center",
