@@ -40,6 +40,7 @@ export default class Routes extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity
+        onPress={() => this.props.navigation.navigate("screen1Sad")}
           style={{
             flex: 0,
             flexDirection: "row",

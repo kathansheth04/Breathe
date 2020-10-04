@@ -20,6 +20,13 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import StressScreen1 from "./components/stress/screen1Stress";
 import StressScreen2 from "./components/stress/screen2Stress";
 import StressScreen3 from "./components/stress/screen3Stress";
+import StressScreen1 from "./components/stress/screen1Stress";
+import StressScreen2 from "./components/stress/screen2Stress";
+import StressScreen3 from "./components/stress/screen3Stress";
+import SadScreen1 from "./components/sadness/screen1Sad";
+import SadScreen2 from "./components/sadness/screen2Sad";
+import SadScreen3 from "./components/sadness/screen3Sad";
+import videoGame from "./components/sadness/videoGame";
 import { Ionicons } from "@expo/vector-icons";
 
 //creating stack and drawer navigators
@@ -139,6 +146,8 @@ const App = ({ navigation }) => {
       <Stack.Screen
         name="AngerScreen1"
         component={AngerScreen1}
+        name="screen1Sad"
+        component={SadScreen1}
         options={{
           ...myOptions,
           headerShown: false,
@@ -152,6 +161,8 @@ const App = ({ navigation }) => {
       <Stack.Screen
         name="AngerScreen2"
         component={AngerScreen2}
+        name="screen2Sad"
+        component={SadScreen2}
         options={{
           ...myOptions,
           headerShown: false,
@@ -165,6 +176,21 @@ const App = ({ navigation }) => {
       <Stack.Screen
         name="AngerScreen3"
         component={AngerScreen3}
+        name="screen3Sad"
+        component={SadScreen3}
+        options={{
+          ...myOptions,
+          headerShown: false,
+          gestureEnabled: false,
+          headerStyle: {
+            backgroundColor: "#E55B46",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="videoGameScreen"
+        component={videoGame}
         options={{
           ...myOptions,
           headerShown: false,
