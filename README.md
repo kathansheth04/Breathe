@@ -11,10 +11,6 @@ Breathe has specialized therapy and binaural beats for your needs and whenever y
 * Find nearest COVID testing site using google maps and api
 * Therapies include meditation, listening to music with inbuilt player, mini video game, anger control activities, and much more.
 
-# Video Demonstration of the App
-
-https://youtube.com/watch?v=7k7zZYxIyQ0&feature=youtu.be
-
 # Development Environment and softwares Used
 
 * [React Native](https://reactnative.dev/)
